@@ -1,8 +1,24 @@
 {
+  "common": {
+    "language": "Language"
+  },
   "offline": {
     "title": "App is offline",
     "message": "The server is temporarily unavailable",
     "pageTitle": "Houston, we have a problem!",
     "pageSubtitle": "The page you requested is unavailable since the connection is broken. We're trying to reconnect and show the page as soon as possible."
+  },
+  "login": {
+    "title": "Login",
+    "subtitle": "Sign In to your account",
+    "usernamePlaceholder": "Username",
+    "passwordPlaceholder": "Password",
+    "submitLabel": "Login",
+    "errors": {
+      "badCredentials": "Sorry, either the username or the password you entered is wrong.",
+      "missingCredentials": "Please, provide both your username and password.",
+      "generic": "Sorry, an error occurred while logging in.",
+      "notConnected": "Cannot login while offline."
+    }
   }
 }

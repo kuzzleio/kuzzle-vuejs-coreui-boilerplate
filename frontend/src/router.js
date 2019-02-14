@@ -3,14 +3,33 @@ import Router from 'vue-router';
 import kuzzle from '@/services/kuzzle';
 import store from '@/store';
 
-import Home from './views/Home.vue';
+import Home from './views/Home';
+import Login from '@/views/Login';
 
 Vue.use(Router);
+
+const authenticationGuard = async (to, from, next) => {
+  try {
+    if (await store.dispatch('auth/CHECK_TOKEN')) {
+      next();
+    } else {
+      next({ name: 'login', query: { to: to.name } });
+    }
+  } catch (error) {
+    console.error(error.message);
+    next({ name: 'login', query: { to: to.name } });
+  }
+};
 
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
     {
       path: '/',
       name: 'home',
@@ -19,6 +38,7 @@ const router = new Router({
     {
       path: '/about',
       name: 'about',
+      beforeEnter: authenticationGuard,
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.

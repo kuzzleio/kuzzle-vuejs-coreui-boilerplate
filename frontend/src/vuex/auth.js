@@ -54,15 +54,15 @@ const actions = {
     }
 
     commit('SET_CURRENT_USER', currentUser);
-    await dispatch('customerConfig/FETCH_CONFIG', null, { root: true });
-    await dispatch('alarms/FETCH_TRIGGERED_ALARMS', null, { root: true });
-    await dispatch('alarms/SUBSCRIBE', null, { root: true });
+
+    /**
+     * Here, you can perform some data fetch related to your user-session.
+     */
   },
   LOG_OUT: async ({ commit, dispatch }) => {
-    await dispatch('alarms/UNSUBSCRIBE', null, { root: true });
-    commit('alarms/UNSET_ALL_TRIGGERED_ALARMS', null, { root: true });
-    commit('customerConfig/UNSET_CONFIG', null, { root: true });
-    commit('devices/SET_DEVICE_LIST', [], { root: true });
+    /**
+     * You should tear down your session here.
+     */
     commit('UNSET_CURRENT_USER');
     kuzzle.jwt = null;
     localStorage.removeItem('user_token');
