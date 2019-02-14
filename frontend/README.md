@@ -93,7 +93,7 @@ The main implementation items are
 - the `beforeEach` guard in the `@/router.js` module,
 - the listeners declared in the `mounted` hook of the `@/App.vue` component.
 
-### The internationalization
+## The internationalization
 
 The app is fully i18n thanks to the [Vue-i18n](https://kazupon.github.io/vue-i18n/) plugin.
 Locale messages are stored in the `@/locales` directory and this boilerplate only provides English to start.
@@ -101,6 +101,11 @@ Locale messages are stored in the `@/locales` directory and this boilerplate onl
 You can use the `@/components/LocaleChanger.vue` component to live-change the locale in the app. This component reads
 its available options in the `locales` field of the `@/config.json` file.
 
-### CoreUI + Boostrap
+## CoreUI + Boostrap
 
 The boilerplate ships with [Bootstrap-Vue](https://bootstrap-vue.js.org/) and [CoreUI](https://coreui.io/vue/) installed in your frontend. You can add variables to the `_variables.scss` file and add any customizations and hacks in `_custom.scss` (both in the `@/assets` directory). You can also drop IE-specific hacks in the `_ie-fix.scss` file.
+
+## Toast notifications to the user
+
+This boilerplates ships with [Vue-izitoast](https://github.com/arthurvasconcelos/vue-izitoast), that exposes the `$toast` element in the Vue components.
+You can find an example of its usage in the `checkConnection` method of the `@/App.vue` component.
