@@ -1,3 +1,8 @@
 {
-  "message": "hello i18n !!"
+  "offline": {
+    "title": "App is offline",
+    "message": "The server is temporarily unavailable",
+    "pageTitle": "Houston, we have a problem!",
+    "pageSubtitle": "The page you requested is unavailable since the connection is broken. We're trying to reconnect and show the page as soon as possible."
+  }
 }

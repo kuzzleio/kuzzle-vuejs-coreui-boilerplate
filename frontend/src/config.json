@@ -1,0 +1,11 @@
+{
+  "backends": {
+    "local": {
+      "host": "localhost",
+      "options": {
+        "port": 7512,
+        "sslConnection": false
+      }
+    }
+  }
+}

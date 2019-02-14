@@ -4,9 +4,87 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view v-if="!$store.state.app.waitingForConnection"/>
+    <offline v-else/>
   </div>
 </template>
+
+<script>
+import kuzzle from '@/services/kuzzle';
+import Offline from '@/views/Offline';
+
+export default {
+  name: 'App',
+  components: {
+    Offline
+  },
+  computed: {
+    locale() {
+      return this.$i18n.locale;
+    },
+    online() {
+      return this.$store.state.app.online;
+    }
+  },
+  methods: {
+    checkConnection() {
+      if (this.online === false) {
+        this.$toast.show(this.$t('offline.message'), this.$t('offline.title'), {
+          theme: 'dark',
+          timeout: false,
+          progressBar: false,
+          close: false
+        });
+        // HACK - the following check prevents iziToast to try to hide a null
+        // toast, which provokes an error.
+      } else if (document.querySelector('.iziToast')) {
+        this.$toast.hide();
+      }
+    }
+  },
+  watch: {
+    locale(newValue) {
+      if (newValue) {
+        localStorage.setItem('locale', this.locale);
+      }
+    },
+    online: {
+      immediate: false,
+      handler() {
+        this.checkConnection();
+      }
+    }
+  },
+  async mounted() {
+    /**
+     * APPLICATION BOOTSTRAP -- refactor this in a service if necessary.
+     */
+    kuzzle.addListener('connected', () => {
+      this.$store.commit('app/SET_ONLINE');
+    });
+    kuzzle.addListener('reconnected', () => {
+      this.$store.commit('app/SET_ONLINE');
+    });
+    kuzzle.addListener('disconnected', () => {
+      this.$store.commit('app/SET_OFFLINE');
+    });
+    kuzzle.addListener('tokenExpired', () => {
+      this.$store.dispatch('auth/LOG_OUT');
+      this.$router.push({ name: 'login' });
+    });
+    const persistedLocale = localStorage.getItem('locale');
+    if (persistedLocale) {
+      this.$i18n.locale = persistedLocale;
+    }
+    await kuzzle.connect();
+    // Avoids showing the toast as soon as the app loads
+    setTimeout(() => {
+      this.checkConnection();
+    }, 1000);
+  }
+};
+</script>
+
 
 <style lang="scss">
 // CoreUI Icons Set

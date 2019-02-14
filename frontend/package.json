@@ -9,14 +9,9 @@
     "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
-    "vue": "^2.5.22",
-    "vue-i18n": "^8.0.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
     "@coreui/coreui": "^2.1.4",
     "@coreui/coreui-plugin-chartjs-custom-tooltips": "^1.2.0",
     "@coreui/icons": "^0.3.0",
-    "simple-line-icons": "^2.4.1",
     "@coreui/vue": "^2.1.0",
     "bootstrap": "^4.2.1",
     "bootstrap-vue": "^2.0.0-rc.11",
@@ -26,8 +21,14 @@
     "flag-icon-css": "^3.2.1",
     "font-awesome": "^4.7.0",
     "izitoast": "^1.4.0",
+    "kuzzle-sdk": "git://github.com/kuzzleio/sdk-javascript.git#6-beta",
+    "simple-line-icons": "^2.4.1",
+    "vue": "^2.5.22",
+    "vue-i18n": "^8.0.0",
+    "vue-izitoast": "^1.1.2",
+    "vue-router": "^3.0.1",
     "vuejs-logger": "^1.5.3",
-    "kuzzle-sdk": "git://github.com/kuzzleio/sdk-javascript.git#6-beta"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
