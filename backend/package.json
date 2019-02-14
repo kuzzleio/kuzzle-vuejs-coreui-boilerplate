@@ -1,0 +1,41 @@
+{
+  "name": "kuzzle-plugin-advanced-boilerplate",
+  "author": "Kuzzle Team <support@kuzzle.io>",
+  "version": "1.0.0",
+  "description": "Kuzzle plugin advanced boilerplate template",
+  "main": "KuzzlePlugin.js",
+  "scripts": {
+    "test": "npm run --silent lint && npm run --silent unit-testing",
+    "lint": "./node_modules/.bin/eslint --max-warnings=0 ./lib ./test ./KuzzlePlugin.js",
+    "unit-testing": "nyc --reporter=text-summary --reporter=lcov mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate.git"
+  },
+  "keywords": [
+    "kuzzle",
+    "plugin",
+    "template"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate/issues"
+  },
+  "homepage": "https://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate#readme",
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "kuzzle-common-objects": "^3.0.13",
+    "mocha": "^5.2.0",
+    "mock-require": "^3.0.3",
+    "nyc": "^13.2.0",
+    "rewire": "^4.0.1",
+    "should-sinon": "0.0.6",
+    "sinon": "^7.2.3",
+    "should": "^13.2.3"
+  },
+  "dependencies": {
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}

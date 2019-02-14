@@ -1,0 +1,5 @@
+{
+  "name": "kuzzle-plugin-advanced-boilerplate",
+  "version": "1.0.0",
+  "kuzzleVersion": ">=1.6.0 <2.0.0"
+}

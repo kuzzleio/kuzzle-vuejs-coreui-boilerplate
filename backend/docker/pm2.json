@@ -1,0 +1,10 @@
+{
+  "apps": [{
+    "name": "KuzzleServer",
+    "script": "bin/kuzzle",
+    "args": ["start", "--mappings", "/default-mappings.json", "--fixtures", "/default-fixtures.json", "--securities", "/default-securities.json"],
+    "node_args": "--inspect=0.0.0.0:9229",
+    "watch": ["lib", "config", "bin", "plugins/enabled/**/lib/**/*", "plugins/enabled/**/KuzzlePlugin.js"],
+    "ignore_watch" : ["node_modules", "plugins/enabled/**/.git"]
+  }]
+}

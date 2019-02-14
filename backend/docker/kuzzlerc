@@ -1,0 +1,16 @@
+{
+  // The complete list of properties can be found here: https://github.com/kuzzleio/kuzzle/blob/master/.kuzzlerc.sample
+  // You can also refere to the documentation: https://docs.kuzzle.io/guide/essentials/configuration/
+  "plugins": {
+    "common": {
+      "bootstrapLockTimeout": 5000,
+      "pipeWarnTime": 40,
+      "pipeTimeout": 250,
+      "initTimeout": 2000
+    },
+
+    "kuzzle-plugin-advanced-boilerplate": {
+      "awesomeMessages": ["Awesome", "Great", "Marvelous", "Fantastic", "Splendid"]
+    }
+  }
+}

@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  kuzzle:
+    image: kuzzleio/plugin-dev:${KUZZLE_DOCKER_TAG:-latest}
+    command: /run-dev.sh
+    volumes:
+      - "./run-dev.sh:/run-dev.sh"
+      - "./install-plugins.sh:/install-plugins.sh"
+      - "./default-mappings.json:/default-mappings.json"
+      - "./default-fixtures.json:/default-fixtures.json"
+      - "./default-securities.json:/default-securities.json"
+      - "./pm2.json:/config/pm2.json"
+      - "..:/var/app/plugins/enabled/kuzzle-plugin-advanced-boilerplate"
+      - "./kuzzlerc:/etc/kuzzlerc"
+    cap_add:
+      - SYS_PTRACE
+    ulimits:
+      nofile: 65536
+    sysctls:
+      - net.core.somaxconn=8192
+    depends_on:
+      - redis
+      - elasticsearch
+    ports:
+      - "9229:9229"
+      - "7512:7512"
+    environment:
+      - kuzzle_services__db__client__host=http://elasticsearch:9200
+      - kuzzle_services__internalCache__node__host=redis
+      - kuzzle_services__memoryStorage__node__host=redis
+      - NODE_ENV=development
+      - DEBUG=kuzzle:plugins
+
+  redis:
+    image: redis:3.2
+
+  elasticsearch:
+    image: kuzzleio/elasticsearch:5.6.10
+    ulimits:
+      nofile: 65536
+    environment:
+      - cluster.name=kuzzle
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
