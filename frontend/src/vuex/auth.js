@@ -45,7 +45,7 @@ const actions = {
 
     return true;
   },
-  FETCH_CURRENT_USER: async ({ commit, dispatch }) => {
+  FETCH_CURRENT_USER: async ({ commit }) => {
     let currentUser;
     try {
       currentUser = await kuzzle.auth.getMyCredentials('local');
@@ -59,7 +59,7 @@ const actions = {
      * Here, you can perform some data fetch related to your user-session.
      */
   },
-  LOG_OUT: async ({ commit, dispatch }) => {
+  LOG_OUT: async ({ commit }) => {
     /**
      * You should tear down your session here.
      */

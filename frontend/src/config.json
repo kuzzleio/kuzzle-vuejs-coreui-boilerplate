@@ -7,5 +7,10 @@
         "sslConnection": false
       }
     }
+  },
+  "i18n": {
+    "locales": {
+      "en": "English"
+    }
   }
 }

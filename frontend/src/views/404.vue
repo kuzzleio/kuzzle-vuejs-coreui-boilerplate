@@ -9,7 +9,9 @@
             </h1>
             <h4 class="pt-3">{{ $t('pageNotFound.pageTitle') }}</h4>
             <p class="text-muted">{{ $t('pageNotFound.pageSubtitle') }}</p>
-            <b-button :to="{name: 'overview'}" variant="primary">{{ $t('pageNotFound.backToHome') }}</b-button>
+            <b-button :to="{ name: 'overview' }" variant="primary">{{
+              $t('pageNotFound.backToHome')
+            }}</b-button>
           </div>
         </b-col>
       </b-row>
@@ -21,6 +23,4 @@
 .PageNotFound-icon
   padding-bottom: 0.6em
   color: rgb(115, 129, 143)
-
 </style>
-

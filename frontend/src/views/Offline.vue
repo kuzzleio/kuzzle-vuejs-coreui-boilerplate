@@ -10,7 +10,13 @@
             <h4 class="pt-3">{{ $t('offline.pageTitle') }}</h4>
             <p class="text-muted">{{ $t('offline.pageSubtitle') }}</p>
           </div>
-          <b-progress striped variant="info" :value="100" :animated="true" class="mb-2"></b-progress>
+          <b-progress
+            striped
+            variant="info"
+            :value="100"
+            :animated="true"
+            class="mb-2"
+          ></b-progress>
         </b-col>
       </b-row>
     </div>

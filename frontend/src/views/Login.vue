@@ -6,7 +6,7 @@
           <b-card-group>
             <b-card no-body class="p-4">
               <b-card-body>
-                <loginForm/>
+                <loginForm />
               </b-card-body>
             </b-card>
           </b-card-group>

@@ -15,7 +15,6 @@
     "@coreui/vue": "^2.1.0",
     "bootstrap": "^4.2.1",
     "bootstrap-vue": "^2.0.0-rc.11",
-    "chart.js": "^2.7.3",
     "css-loader": "^2.0.2",
     "css-vars-ponyfill": "^1.16.1",
     "flag-icon-css": "^3.2.1",

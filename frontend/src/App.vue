@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>|
+      <router-link to="/">Home</router-link>&nbsp;|
       <router-link to="/about">About (Authenticated page)</router-link>
+      <span v-if="$store.getters['auth/currentUser']">&nbsp;|
+        <b-link href="#" @click.prevent="logout">Logout</b-link>
+      </span>
     </div>
     <router-view v-if="!$store.state.app.waitingForConnection"/>
     <offline v-else/>
@@ -40,6 +43,10 @@ export default {
       } else if (document.querySelector('.iziToast')) {
         this.$toast.hide();
       }
+    },
+    async logout() {
+      await this.$store.dispatch('auth/LOG_OUT');
+      this.$router.push('/');
     }
   },
   watch: {

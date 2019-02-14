@@ -1,9 +1,9 @@
 module.exports = {
   pluginOptions: {
     i18n: {
-      locale: "en",
-      fallbackLocale: "en",
-      localeDir: "locales",
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
       enableInSFC: false
     }
   },
@@ -13,6 +13,6 @@ module.exports = {
   },
 
   configureWebpack: {
-    devtool: "source-map"
+    devtool: 'source-map'
   }
 };

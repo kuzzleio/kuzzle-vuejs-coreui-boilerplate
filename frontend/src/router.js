@@ -5,6 +5,7 @@ import store from '@/store';
 
 import Home from './views/Home';
 import Login from '@/views/Login';
+import PageNotFound from '@/views/404.vue';
 
 Vue.use(Router);
 
@@ -44,6 +45,10 @@ const router = new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '*',
+      component: PageNotFound
     }
   ]
 });
