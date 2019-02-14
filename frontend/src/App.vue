@@ -85,7 +85,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss">
 // CoreUI Icons Set
 @import '~@coreui/icons/css/coreui-icons.min.css';

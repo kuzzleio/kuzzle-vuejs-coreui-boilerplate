@@ -10,7 +10,7 @@
             <h4 class="pt-3">{{ $t('offline.pageTitle') }}</h4>
             <p class="text-muted">{{ $t('offline.pageSubtitle') }}</p>
           </div>
-          <b-progress :value="100" variant="info" striped :animated="true" class="mb-2"></b-progress>
+          <b-progress striped variant="info" :value="100" :animated="true" class="mb-2"></b-progress>
         </b-col>
       </b-row>
     </div>
@@ -21,6 +21,4 @@
 .OfflinePage-icon
   padding-bottom: 0.6em
   color: rgb(115, 129, 143)
-
 </style>
-
