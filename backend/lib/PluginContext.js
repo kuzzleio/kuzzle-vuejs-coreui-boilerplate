@@ -67,7 +67,7 @@ class PluginContext {
    * @returns {KuzzleError}
    */
   newError(errorType, message = null) {
-    const errorName = `${errorName}Error`;
+    const errorName = `${errorType}Error`;
 
     if (! this.context.errors[errorName]) {
       return this.newError(

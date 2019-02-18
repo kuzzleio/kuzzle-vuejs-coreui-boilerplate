@@ -1,0 +1,3 @@
+[submodule "kuzzle-plugin-advanced-boilerplate"]
+	path = backend
+	url = https://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate.git

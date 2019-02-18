@@ -18,3 +18,31 @@ This boilerplate provides you with
   - a complete CoreUI and Bootstrap-Vue installation (with Fontawesome 4),
   - an instance of the vue-izitoast plugin
   - a ready-to-go Cypress.io installation for e2e testing
+
+## Install
+
+Clone this repository using the following command
+
+```bash
+git clone --recurse-submodules https://github.com/kuzzleio/kuzzle-vuejs-coreui-boilerplate.git
+```
+
+> Note that the `--recurse-submodules` is important since the `backend` folder is a submodule pointing to the [Kuzzle Plugin
+> Advanced Boilerplate](ttps://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate).
+
+Then, delete the Git tree and reinitialize the repo from scratch
+
+```bash
+rm -rf .git
+```
+
+Then, you can set remote(s) the usual way
+
+```bash
+git init
+git remote add origin <another-git-server-URL-here>
+```
+
+## And then what?
+
+Take a look at the `README.md` files in the `backend` and `frontend` directories to do the next steps.
