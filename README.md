@@ -33,9 +33,11 @@ git clone --recurse-submodules https://github.com/kuzzleio/kuzzle-vuejs-coreui-b
 Then, delete the Git tree and reinitialize the repo from scratch
 
 ```bash
+cd kuzzle-vuejs-coreui-boilerplate
 rm -rf .git
 ```
 
+At this point you may rename the folder of your project to a meaningful name.
 Then, you can set remote(s) the usual way
 
 ```bash
