@@ -47,4 +47,17 @@ git remote add origin <another-git-server-URL-here>
 
 ## And then what?
 
+Start your local Kuzzle instance by typing
+
+```bash
+docker-compose -f backend/docker/docker-compose.yml up -d
+```
+
+Serve your web app locally by typing
+
+```bash
+cd frontend
+npm install && npm run serve
+```
+
 Take a look at the `README.md` files in the `backend` and `frontend` directories to do the next steps.
