@@ -1,5 +1,5 @@
 import { backends } from '@/config';
-import { Kuzzle, WebSocket } from 'kuzzle-sdk/dist/kuzzle';
+import { Kuzzle, WebSocket } from 'kuzzle-sdk';
 
 let backendName = process.env.VUE_APP_BACKEND
   ? process.env.VUE_APP_BACKEND
