@@ -32,9 +32,7 @@
     </b-input-group>
     <b-row>
       <b-col cols="6">
-        <b-button variant="primary" class="px-4" type="submit">
-          {{ $t('login.submitLabel') }}
-        </b-button>
+        <b-button variant="primary" class="px-4" type="submit">{{ $t('login.submitLabel') }}</b-button>
       </b-col>
       <b-col cols="6">
         <b-form-group
@@ -43,15 +41,13 @@
           :label="$t('common.language')"
           label-for="locale-selector"
         >
-          <locale-changer />
+          <locale-changer/>
         </b-form-group>
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="12">
-        <div v-if="this.errorMessage" class="alert alert-danger" role="alert">
-          {{ translatedError }}
-        </div>
+        <div v-if="this.errorMessage" class="alert alert-danger" role="alert">{{ translatedError }}</div>
       </b-col>
     </b-row>
   </b-form>
@@ -79,7 +75,7 @@ export default {
       this.setErrorMessage('');
 
       this.$store
-        .dispatch('auth/LOGIN', credentials)
+        .dispatch('auth/LOGIN', { credentials, kuzzle: this.$kuzzle })
         .then(() => {
           if (this.$route.query.to) {
             this.$router.push({ name: this.$route.query.to });

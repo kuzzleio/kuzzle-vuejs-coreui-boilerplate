@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link>&nbsp;|
       <router-link to="/about">About (Authenticated page)</router-link>
-      <span v-if="$store.getters['auth/currentUser']">&nbsp;|
+      <span v-if="$store.getters['auth/currentUser']">
+        &nbsp;|
         <b-link href="#" @click.prevent="logout">Logout</b-link>
       </span>
     </div>
@@ -13,7 +14,6 @@
 </template>
 
 <script>
-import kuzzle from '@/services/kuzzle';
 import Offline from '@/views/Offline';
 
 export default {
@@ -66,16 +66,16 @@ export default {
     /**
      * APPLICATION BOOTSTRAP -- refactor this in a service if necessary.
      */
-    kuzzle.addListener('connected', () => {
+    this.$kuzzle.addListener('connected', () => {
       this.$store.commit('app/SET_ONLINE');
     });
-    kuzzle.addListener('reconnected', () => {
+    this.$kuzzle.addListener('reconnected', () => {
       this.$store.commit('app/SET_ONLINE');
     });
-    kuzzle.addListener('disconnected', () => {
+    this.$kuzzle.addListener('disconnected', () => {
       this.$store.commit('app/SET_OFFLINE');
     });
-    kuzzle.addListener('tokenExpired', () => {
+    this.$kuzzle.addListener('tokenExpired', () => {
       this.$store.dispatch('auth/LOG_OUT');
       this.$router.push({ name: 'login' });
     });
@@ -83,7 +83,7 @@ export default {
     if (persistedLocale) {
       this.$i18n.locale = persistedLocale;
     }
-    await kuzzle.connect();
+    await this.$kuzzle.connect();
     // Avoids showing the toast as soon as the app loads
     setTimeout(() => {
       this.checkConnection();
