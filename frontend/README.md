@@ -43,7 +43,8 @@ npm run test:e2e
 
 ## Kuzzle SDK
 
-The Kuzzle SDK is encapsulated in the `@/services/kuzzle.js` service, always import the Kuzzls SDK instance from this module.
+The boilerplate use `vue-kuzzle` plugin to encapsulate the kuzzle SDK in the app.
+more infos here : [vue-kuzzle](https://www.npmjs.com/package/vue-kuzzle).
 
 ### Connecting to the Backend
 

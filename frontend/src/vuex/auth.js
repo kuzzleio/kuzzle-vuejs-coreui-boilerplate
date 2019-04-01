@@ -1,5 +1,3 @@
-import kuzzle from '@/services/kuzzle';
-
 const state = {
   currentUser: null
 };
@@ -11,11 +9,11 @@ const getters = {
 };
 
 const actions = {
-  LOGIN: async ({ dispatch }, credentials) => {
+  LOGIN: async ({ dispatch }, { credentials, kuzzle }) => {
     let jwt;
     try {
       jwt = await kuzzle.auth.login('local', credentials, '7 days');
-      await dispatch('FETCH_CURRENT_USER');
+      await dispatch('FETCH_CURRENT_USER', kuzzle);
     } catch (error) {
       localStorage.removeItem('user_token');
       throw error;
@@ -23,7 +21,7 @@ const actions = {
 
     localStorage.setItem('user_token', jwt);
   },
-  CHECK_TOKEN: async ({ dispatch, getters }) => {
+  CHECK_TOKEN: async ({ dispatch, getters }, kuzzle) => {
     const jwt = localStorage.getItem('user_token');
 
     if (!jwt) {
@@ -33,19 +31,19 @@ const actions = {
     const { valid } = await kuzzle.auth.checkToken(jwt);
 
     if (!valid) {
-      await dispatch('LOG_OUT');
+      await dispatch('LOG_OUT', kuzzle);
       return false;
     }
 
     kuzzle.jwt = jwt;
 
     if (!getters.currentUser) {
-      await dispatch('FETCH_CURRENT_USER');
+      await dispatch('FETCH_CURRENT_USER', kuzzle);
     }
 
     return true;
   },
-  FETCH_CURRENT_USER: async ({ commit }) => {
+  FETCH_CURRENT_USER: async ({ commit }, kuzzle) => {
     let currentUser;
     try {
       currentUser = await kuzzle.auth.getMyCredentials('local');
@@ -59,7 +57,7 @@ const actions = {
      * Here, you can perform some data fetch related to your user-session.
      */
   },
-  LOG_OUT: async ({ commit }) => {
+  LOG_OUT: async ({ commit }, kuzzle) => {
     /**
      * You should tear down your session here.
      */
@@ -67,7 +65,7 @@ const actions = {
     kuzzle.jwt = null;
     localStorage.removeItem('user_token');
   },
-  SAVE_USER_LOCALE: async ({ commit }, locale) => {
+  SAVE_USER_LOCALE: async ({ commit }, { locale, kuzzle }) => {
     try {
       await kuzzle.auth.updateSelf({ locale });
       commit('SET_USER_LOCALE', locale);
