@@ -9,7 +9,7 @@ Vue.use(Router);
 export const createRouter = (kuzzle, store) => {
   const authenticationGuard = async (to, from, next) => {
     try {
-      if (await store.dispatch('auth/CHECK_TOKEN')) {
+      if (await store.dispatch('auth/CHECK_TOKEN', kuzzle)) {
         next();
       } else {
         next({ name: 'login', query: { to: to.name } });
