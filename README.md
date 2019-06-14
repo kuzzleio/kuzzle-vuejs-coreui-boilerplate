@@ -18,6 +18,12 @@ This boilerplate provides you with
   - a complete CoreUI and Bootstrap-Vue installation (with Fontawesome 4),
   - an instance of the vue-izitoast plugin
   - a ready-to-go Cypress.io installation for e2e testing
+  
+## Get trained by the creators of Kuzzle :zap:
+
+Train yourself and your teams to use Kuzzle to maximize its potential and accelerate the development of your projects.  
+Our teams will be able to meet your needs in terms of expertise and multi-technology support for IoT, mobile/web, backend/frontend, devops.  
+:point_right: [Get a quote](https://hubs.ly/H0jkfJ_0)
 
 ## Install
 
