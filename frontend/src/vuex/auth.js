@@ -64,16 +64,6 @@ const actions = {
     commit('UNSET_CURRENT_USER');
     kuzzle.jwt = null;
     localStorage.removeItem('user_token');
-  },
-  SAVE_USER_LOCALE: async ({ commit }, { locale, kuzzle }) => {
-    try {
-      await kuzzle.auth.updateSelf({ locale });
-      commit('SET_USER_LOCALE', locale);
-    } catch (error) {
-      console.error(
-        `Unable to set locale ${locale} for current user: ${error.message}`
-      );
-    }
   }
 };
 
@@ -83,16 +73,6 @@ const mutations = {
   },
   UNSET_CURRENT_USER: state => {
     state.currentUser = null;
-  },
-  SET_USER_LOCALE: (state, locale) => {
-    if (!state.currentUser || !state.currentUser.content) {
-      return;
-    }
-    if (!locale) {
-      return;
-    }
-
-    state.currentUser.content.locale = locale;
   }
 };
 
