@@ -2,93 +2,66 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,
-      <br />check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
+      Check out the
+      <a
+        href="https://github.com/kuzzleio/kuzzle-vuejs-coreui-boilerplate"
+        target="_blank"
+        rel="noopener"
+      >
+        Readme
+      </a>
+      to learn more about this Kuzzle / Vue.js / CoreUI application boilerplate
     </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-cypress"
-          target="_blank"
-          rel="noopener"
-          >e2e-cypress</a
-        >
-      </li>
-    </ul>
     <h3>Essential Links</h3>
     <ul>
       <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
+        <a
+          href="https://docs-v2.kuzzle.io/sdk/js/6/getting-started/webpack/"
+          target="_blank"
+          rel="noopener"
         >
+          Kuzzle JS SDK docs
+        </a>
       </li>
       <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
+        <a href="https://vuejs.org" target="_blank" rel="noopener">
+          Vue.js Docs
+        </a>
       </li>
       <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
+        <a href="https://coreui.io/vue/" target="_blank" rel="noopener">
+          CoreUI
+        </a>
       </li>
     </ul>
-    <h3>Ecosystem</h3>
+    <h3>Need help ?</h3>
     <ul>
       <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
+        <a
+          href="https://gitter.im/kuzzleio/kuzzle"
+          target="_blank"
+          rel="noopener"
         >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
+          Community chat
+        </a>
       </li>
       <li>
         <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
+          href="https://stackoverflow.com/questions/ask?guided=false&title=[Kuzzle]"
           target="_blank"
           rel="noopener"
-          >vue-devtools</a
         >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
+          Ask your question on Stack Overflow
+        </a>
       </li>
       <li>
         <a
-          href="https://github.com/vuejs/awesome-vue"
+          href="https://www.youtube.com/channel/UCHcEzVQoH10YSyxc7jD3SMw"
           target="_blank"
           rel="noopener"
-          >awesome-vue</a
         >
+          Check out our tutorial videos
+        </a>
       </li>
     </ul>
   </div>
@@ -104,19 +77,21 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped lang="sass">
+h1
+  margin: 1em 0 0
+
+h3
+  margin: 2em 0 0.5em
+
+ul
+  list-style-type: none
+  padding: 0
+
+li
+  display: inline-block
+  margin: 0 10px
+
+a
+  color: #42b983
 </style>

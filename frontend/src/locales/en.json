@@ -20,5 +20,8 @@
       "generic": "Sorry, an error occurred while logging in.",
       "notConnected": "Cannot login while offline."
     }
+  },
+  "sidebar": {
+    "home": "Home"
   }
 }
