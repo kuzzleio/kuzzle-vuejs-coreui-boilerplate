@@ -16,7 +16,7 @@
     <ul>
       <li>
         <a
-          href="https://docs-v2.kuzzle.io/sdk/js/6/getting-started/webpack/"
+          href="https://docs.kuzzle.io/sdk/js/6/getting-started/webpack/"
           target="_blank"
           rel="noopener"
         >
