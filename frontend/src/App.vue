@@ -2,6 +2,17 @@
   <div id="app">
     <router-view v-if="!$store.state.app.waitingForConnection" />
     <offline v-else />
+    <b-toast
+      id="offline-toast"
+      :title="$t('offline.title')"
+      no-auto-hide
+      no-close-button
+      variant="warning"
+      toaster="b-toaster-bottom-right"
+      append="true"
+    >
+      {{ $t('offline.message') }}
+    </b-toast>
   </div>
 </template>
 
@@ -24,16 +35,9 @@ export default {
   methods: {
     checkConnection() {
       if (this.online === false) {
-        this.$toast.show(this.$t('offline.message'), this.$t('offline.title'), {
-          theme: 'dark',
-          timeout: false,
-          progressBar: false,
-          close: false
-        });
-        // HACK - the following check prevents iziToast to try to hide a null
-        // toast, which provokes an error.
-      } else if (document.querySelector('.iziToast')) {
-        this.$toast.hide();
+        this.$bvToast.show('offline-toast');
+      } else {
+        this.$bvToast.hide('offline-toast');
       }
     },
     async logout() {

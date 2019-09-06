@@ -3,7 +3,7 @@ import App from './App.vue';
 import { createRouter } from './router';
 import store from './store';
 import i18n from './i18n';
-import './notifications';
+import './logger';
 import BootstrapVue from 'bootstrap-vue';
 import VueKuzzle from 'vue-kuzzle';
 import config from './config.json';
