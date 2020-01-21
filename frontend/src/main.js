@@ -5,7 +5,7 @@ import store from './store';
 import i18n from './i18n';
 import './logger';
 import BootstrapVue from 'bootstrap-vue';
-import VueKuzzle from 'vue-kuzzle';
+import VueKuzzle from 'vue-plugin-kuzzle';
 import config from './config.json';
 
 Vue.config.productionTip = false;
