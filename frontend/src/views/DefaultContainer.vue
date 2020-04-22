@@ -1,8 +1,7 @@
 <template>
-  <div class="app">
-    <AppHeader fixed>
-      <SidebarToggler class="d-lg-none" display="md" mobile />
-      <b-link class="navbar-brand" to="#">
+  <div>
+    <b-navbar type="dark" variant="dark">
+      <b-link class="navbar-brand">
         <img
           class="navbar-brand-full"
           height="40"
@@ -10,64 +9,57 @@
           src="../assets/kuzzle_vue.png"
         />
       </b-link>
-      <SidebarToggler class="d-md-down-none" display="lg" />
+      <button type="button" class="btn btn-secondary" v-b-toggle.sidebar-1>
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item>
-          <locale-changer />
-        </b-nav-item>
-        <div class="d-md-down-none username">{{ currentUsername }}</div>
-        <b-nav-item class="d-md-down-none" @click="logout">
-          <i class="fa fa-sign-out"></i>
-        </b-nav-item>
+        <locale-changer />
       </b-navbar-nav>
-    </AppHeader>
-    <div class="app-body">
-      <AppSidebar fixed>
-        <SidebarHeader />
-        <SidebarForm />
-        <SidebarNav :navItems="navItems" />
-        <SidebarFooter />
-      </AppSidebar>
-      <main class="main">
-        <div class="container-fluid">
-          <router-view></router-view>
-        </div>
-      </main>
-    </div>
-    <Footer>
-      <div>
-        <a href="https://kuzzle.io" target="_blank">Kuzzle</a>
+      <div class="d-md-down-none username">{{ currentUsername }}</div>
+      <b-navbar-nav class="d-md-down-none" name="logout" @click="logout">
+        <i class="fas fa-sign-out-alt whiteiconcolor"></i>
+      </b-navbar-nav>
+    </b-navbar>
+
+    <div id="id">
+      <div class="d-flex p-2">
+        <b-sidebar
+          id="sidebar-1"
+          width="200px"
+          bg-variant="dark"
+          text-variant="light"
+          shadow
+        >
+          <div class="px-3 py-2">
+            <b-list-group>
+              <div
+                class="nav-item"
+                v-for="(item, index) in navItems"
+                :key="index"
+              >
+                <i :class="item.icon"></i>
+                <b-link class="nav-b-link" :href="item.url">{{
+                  item.name
+                }}</b-link>
+              </div>
+            </b-list-group>
+          </div>
+        </b-sidebar>
       </div>
-    </Footer>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
 import LocaleChanger from '../components/LocaleChanger';
-import {
-  Header as AppHeader,
-  SidebarToggler,
-  Sidebar as AppSidebar,
-  SidebarFooter,
-  SidebarForm,
-  SidebarHeader,
-  SidebarNav,
-  Footer
-} from '@coreui/vue';
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'DefaultContainer',
   components: {
-    AppHeader,
-    AppSidebar,
-    LocaleChanger,
-    SidebarForm,
-    SidebarFooter,
-    SidebarToggler,
-    SidebarHeader,
-    SidebarNav,
-    Footer
+    LocaleChanger
   },
   computed: {
     navItems() {
@@ -75,7 +67,7 @@ export default {
         {
           name: this.$t('sidebar.home'),
           url: '/',
-          icon: 'cui-dashboard'
+          icon: 'fas fa-home'
         }
       ];
     },
@@ -94,11 +86,15 @@ export default {
 <style scoped lang="sass">
 .username
   color: #73818f
-  margin: 0 0 0 1em
+  margin: 0 0.3em 0 1em
 
-.container-fluid
-  margin-top: 2em
-
-.nav-link
+.nav-item
   text-align: left
+
+.nav-b-link
+  margin: 5px
+  color: #FFF
+
+.whiteiconcolor
+  color: #FFF
 </style>

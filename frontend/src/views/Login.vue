@@ -26,3 +26,10 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="sass">
+
+.app
+  height: 100vh;
+  display: flex;
+</style>

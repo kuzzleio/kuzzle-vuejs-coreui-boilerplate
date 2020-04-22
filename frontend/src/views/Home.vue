@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <img alt="Vue logo" src="../assets/kuzzle_vue.png" />
     <HelloWorld msg="Welcome to Your Kuzzle + Vue.js App" />
   </div>
