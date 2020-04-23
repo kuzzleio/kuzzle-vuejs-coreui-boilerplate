@@ -14,7 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "boostrap": "^2.0.0",
-    "bootstrap-vue": "^2.11.0",
+    "bootstrap-vue": "^2.12.0",
     "css-loader": "^2.0.2",
     "css-vars-ponyfill": "^1.16.1",
     "flag-icon-css": "^3.2.1",
@@ -37,7 +37,7 @@
     "cypress": "^4.4.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.2.3",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.0",
     "sass-loader": "^7.3.1",
     "vue-cli-plugin-i18n": "^0.5.2",
     "vue-template-compiler": "^2.6.11"
