@@ -30,6 +30,6 @@ export default {
 <style scoped lang="sass">
 
 .app
-  height: 100vh;
-  display: flex;
+  height: 100vh
+  display: flex
 </style>

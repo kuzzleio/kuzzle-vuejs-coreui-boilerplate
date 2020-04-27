@@ -12,6 +12,7 @@
         v-model="username"
         type="text"
         name="username"
+        data-cy="username"
         class="form-control"
         :placeholder="$t('login.usernamePlaceholder')"
         autocomplete="username email"
@@ -27,6 +28,7 @@
         v-model="password"
         type="password"
         name="password"
+        data-cy="password"
         class="form-control"
         :placeholder="$t('login.passwordPlaceholder')"
         autocomplete="current-password"
@@ -34,7 +36,7 @@
     </b-input-group>
     <b-row>
       <b-col cols="2">
-        <b-button variant="primary" class="px-4" type="submit">{{
+        <b-button variant="primary" class="px-4" data-cy="submit" type="submit">{{
           $t('login.submitLabel')
         }}</b-button>
       </b-col>

@@ -6,6 +6,7 @@
   "screenshotsFolder": "tests/cypress/screenshots/",
   "supportFile": "tests/cypress/support/index.js",
   "pluginsFile": "tests/cypress/plugins/index.js",
+  "videoUploadOnPasses": false,
   "env": {
     "username": "admin",
     "password": "admin"

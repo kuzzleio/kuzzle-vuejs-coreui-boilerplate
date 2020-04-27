@@ -2,12 +2,7 @@
   <div>
     <b-navbar type="dark" variant="dark">
       <b-link class="navbar-brand">
-        <img
-          class="navbar-brand-full"
-          height="40"
-          alt="logo"
-          src="../assets/kuzzle_vue.png"
-        />
+        <img class="navbar-brand-full" height="40" alt="logo" src="../assets/kuzzle_vue.png" />
       </b-link>
       <button type="button" class="btn btn-secondary" v-b-toggle.sidebar-1>
         <i class="fa fa-bars"></i>
@@ -17,33 +12,21 @@
         <locale-changer />
       </b-navbar-nav>
       <div class="d-md-down-none username">{{ currentUsername }}</div>
-      <b-navbar-nav class="d-md-down-none" name="logout" @click="logout">
+      <b-navbar-nav class="d-md-down-none" data-cy="logout" name="logout" @click="logout">
         <i class="fas fa-sign-out-alt whiteiconcolor"></i>
       </b-navbar-nav>
     </b-navbar>
 
-    <div id="id">
+    <div>
       <div class="d-flex p-2">
-        <b-sidebar
-          id="sidebar-1"
-          width="200px"
-          bg-variant="dark"
-          text-variant="light"
-          shadow
-        >
-          <div class="px-3 py-2">
-            <b-list-group>
-              <div
-                class="nav-item"
-                v-for="(item, index) in navItems"
-                :key="index"
-              >
-                <i :class="item.icon"></i>
-                <b-link class="nav-b-link" :href="item.url">{{
-                  item.name
-                }}</b-link>
-              </div>
-            </b-list-group>
+        <b-sidebar id="sidebar-1" width="200px" bg-variant="dark" text-variant="light" shadow>
+          <div class="px-3 text-left" v-for="(item, index) in navItems" :key="index">
+            <i :class="item.icon"></i>
+            <b-link class="nav-b-link" :href="item.url">
+              {{
+              item.name
+              }}
+            </b-link>
           </div>
         </b-sidebar>
       </div>
@@ -68,6 +51,11 @@ export default {
           name: this.$t('sidebar.home'),
           url: '/',
           icon: 'fas fa-home'
+        },
+        {
+          name: this.$t('sidebar.home'),
+          url: '/',
+          icon: 'fas fa-home'
         }
       ];
     },
@@ -88,13 +76,7 @@ export default {
   color: #73818f
   margin: 0 0.3em 0 1em
 
-.nav-item
-  text-align: left
-
 .nav-b-link
   margin: 5px
-  color: #FFF
-
-.whiteiconcolor
   color: #FFF
 </style>
