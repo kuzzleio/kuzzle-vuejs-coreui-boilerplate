@@ -77,21 +77,26 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="sass">
-h1
-  margin: 1em 0 0
+<style scoped lang="scss">
+h1 {
+  margin: 1em 0 0;
+}
 
-h3
-  margin: 2em 0 0.5em
+h3 {
+  margin: 2em 0 0.5em;
+}
 
-ul
-  list-style-type: none
-  padding: 0
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
-li
-  display: inline-block
-  margin: 0 10px
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
 
-a
-  color: #42b983
+a {
+  color: #42b983;
+}
 </style>

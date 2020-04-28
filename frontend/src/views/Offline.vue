@@ -21,12 +21,9 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
-.OfflinePage-icon
-  padding-bottom: 0.6em
-  color: rgb(115, 129, 143)
-
-.app
-  height: 100vh;
-  display: flex;
+<style lang="scss" scoped>
+.OfflinePage-icon {
+  padding-bottom: 0.6em;
+  color: rgb(115, 129, 143);
+}
 </style>

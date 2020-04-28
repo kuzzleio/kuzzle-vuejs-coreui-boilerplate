@@ -117,7 +117,8 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-.alert
+<style scoped lang="scss">
+.alert {
   margin-top: 2em
+}
 </style>

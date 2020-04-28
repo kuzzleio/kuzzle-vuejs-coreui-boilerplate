@@ -27,6 +27,7 @@
     }
   },
   "sidebar": {
+    "menu": "Menu",
     "home": "Home"
   }
 }
