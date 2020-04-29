@@ -7,16 +7,6 @@ module.exports = {
       enableInSFC: false
     }
   },
-  css: {
-    loaderOptions: {
-      scss: {
-        data: `
-          @import "./src/assets/style.scss";
-        `
-      }
-    }
-  },
-
   devServer: {
     disableHostCheck: true
   },

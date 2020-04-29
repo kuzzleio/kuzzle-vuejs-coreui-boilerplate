@@ -22,6 +22,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../assets/_variables.scss';
+
 .OfflinePage-icon {
   padding-bottom: 0.6em;
   color: rgb(115, 129, 143);
