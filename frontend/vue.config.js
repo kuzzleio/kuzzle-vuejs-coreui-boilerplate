@@ -7,6 +7,15 @@ module.exports = {
       enableInSFC: false
     }
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        data: `
+          @import "src/assets/_variables.scss";
+        `
+      }
+    }
+  },
   devServer: {
     disableHostCheck: true
   },
