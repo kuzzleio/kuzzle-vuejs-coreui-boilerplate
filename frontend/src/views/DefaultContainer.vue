@@ -34,7 +34,7 @@
           width="200"
           bg-variant="dark"
           text-variant="light"
-          shado
+          shadow
         >
           <h3>{{ $t('sidebar.menu') }}</h3>
           <b-list-group class="m-3">

@@ -1,6 +1,6 @@
 <template>
   <div class="app flex-row align-items-center">
-    <div class="container">
+    <b-container>
       <b-row class="justify-content-center">
         <b-col md="8">
           <b-card-group>
@@ -12,7 +12,7 @@
           </b-card-group>
         </b-col>
       </b-row>
-    </div>
+    </b-container>
   </div>
 </template>
 
