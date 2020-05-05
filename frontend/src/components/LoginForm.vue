@@ -36,9 +36,13 @@
     </b-input-group>
     <b-row>
       <b-col cols="2">
-        <b-button variant="primary" class="px-4" data-cy="submit" type="submit">{{
-          $t('login.submitLabel')
-        }}</b-button>
+        <b-button
+          variant="primary"
+          class="px-4"
+          data-cy="submit"
+          type="submit"
+          >{{ $t('login.submitLabel') }}</b-button
+        >
       </b-col>
       <b-col cols="6" offset="4">
         <b-form-group
@@ -119,6 +123,6 @@ export default {
 
 <style scoped lang="scss">
 .alert {
-  margin-top: 2em
+  margin-top: 2em;
 }
 </style>
