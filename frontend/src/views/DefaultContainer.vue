@@ -9,7 +9,10 @@
           src="../assets/kuzzle_vue.png"
         />
       </b-link>
-      <SlideBar />
+      <button type="button" class="btn btn-secondary" v-b-toggle.sidebar>
+        <i class="fa fa-bars"></i>
+        <span class="sr-only">Toggle Menu</span>
+      </button>
       <b-navbar-nav class="ml-auto">
         <locale-changer />
       </b-navbar-nav>
@@ -23,6 +26,7 @@
         <i class="fas fa-sign-out-alt navbar-text-color"></i>
       </b-navbar-nav>
     </b-navbar>
+    <SideBar />
     <div>
       <router-view></router-view>
     </div>
@@ -31,13 +35,13 @@
 
 <script>
 import LocaleChanger from '../components/LocaleChanger';
-import SlideBar from '../components/SlideBar';
+import SideBar from '../components/SideBar';
 
 export default {
   name: 'DefaultContainer',
   components: {
     LocaleChanger,
-    SlideBar
+    SideBar
   },
   methods: {
     logout() {
@@ -48,9 +52,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-.nav-b-link {
-  margin: 5px;
-}
-</style>

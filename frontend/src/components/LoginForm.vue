@@ -39,7 +39,7 @@
         <b-button
           variant="primary"
           class="px-4"
-          data-cy="submit"
+          data-cy="Login-btn"
           type="submit"
           >{{ $t('login.submitLabel') }}</b-button
         >

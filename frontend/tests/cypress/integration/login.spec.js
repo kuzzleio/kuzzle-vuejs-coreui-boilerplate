@@ -6,7 +6,7 @@ describe('logs in', () => {
     // enter valid username and password
     cy.get('[data-cy=username]').type(Cypress.env('username'));
     cy.get('[data-cy=password]').type(Cypress.env('password'));
-    cy.get('[data-cy=submit]').click();
+    cy.get('[data-cy=Login-btn]').click();
 
     // confirm we have logged in successfully
     cy.location('pathname').should('equal', '/');
@@ -30,7 +30,7 @@ describe('logs in', () => {
     // enter valid username and password
     cy.get('[data-cy=username]').type('username');
     cy.get('[data-cy=password]').type('wrong-password');
-    cy.get('[data-cy=submit]').click();
+    cy.get('[data-cy=Login-btn]').click();
 
     // still on /login page plus an error is displayed
     cy.location('pathname').should('equal', '/login');
