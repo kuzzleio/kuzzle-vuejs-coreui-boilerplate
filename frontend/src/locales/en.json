@@ -27,6 +27,6 @@
     }
   },
   "sidebar": {
-    "title-1": "Home"
+    "home": "Home"
   }
 }

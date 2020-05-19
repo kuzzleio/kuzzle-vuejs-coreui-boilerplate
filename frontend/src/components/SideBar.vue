@@ -25,17 +25,12 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'SlideBar',
+  name: 'SideBar',
   computed: {
     navItems() {
       return [
         {
-          name: this.$t('sidebar.title-1'),
-          url: '/',
-          icon: 'fas fa-home'
-        },
-        {
-          name: this.$t('sidebar.title-1'),
+          name: this.$t('sidebar.home'),
           url: '/',
           icon: 'fas fa-home'
         }
