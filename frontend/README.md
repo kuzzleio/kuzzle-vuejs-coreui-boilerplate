@@ -102,9 +102,9 @@ Locale messages are stored in the `@/locales` directory and this boilerplate onl
 You can use the `@/components/LocaleChanger.vue` component to live-change the locale in the app. This component reads
 its available options in the `locales` field of the `@/config.json` file.
 
-## CoreUI + Boostrap
+## Boostrap
 
-The boilerplate ships with [Bootstrap-Vue](https://bootstrap-vue.js.org/) and [CoreUI](https://coreui.io/vue/) installed in your frontend. You can add variables to the `_variables.scss` file and add any customizations and hacks in `_custom.scss` (both in the `@/assets` directory). You can also drop IE-specific hacks in the `_ie-fix.scss` file.
+The boilerplate ships with [Bootstrap-Vue](https://bootstrap-vue.js.org/) installed in your frontend. You can add variables to the `_variables.scss` file and add any customizations and hacks in `_custom.scss` (both in the `@/assets` directory). You can also drop IE-specific hacks in the `_ie-fix.scss` file.
 
 ## Toast notifications to the user
 

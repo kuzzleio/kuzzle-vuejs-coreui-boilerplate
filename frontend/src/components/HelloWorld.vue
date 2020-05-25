@@ -10,7 +10,7 @@
       >
         Readme
       </a>
-      to learn more about this Kuzzle / Vue.js / CoreUI application boilerplate
+      to learn more about this Kuzzle / Vue.js application boilerplate
     </p>
     <h3>Essential Links</h3>
     <ul>
@@ -26,11 +26,6 @@
       <li>
         <a href="https://vuejs.org" target="_blank" rel="noopener">
           Vue.js Docs
-        </a>
-      </li>
-      <li>
-        <a href="https://coreui.io/vue/" target="_blank" rel="noopener">
-          CoreUI
         </a>
       </li>
     </ul>
