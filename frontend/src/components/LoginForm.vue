@@ -11,6 +11,8 @@
       <b-form-input
         v-model="username"
         type="text"
+        name="username"
+        data-cy="username"
         class="form-control"
         :placeholder="$t('login.usernamePlaceholder')"
         autocomplete="username email"
@@ -25,6 +27,8 @@
       <b-form-input
         v-model="password"
         type="password"
+        name="password"
+        data-cy="password"
         class="form-control"
         :placeholder="$t('login.passwordPlaceholder')"
         autocomplete="current-password"
@@ -32,9 +36,13 @@
     </b-input-group>
     <b-row>
       <b-col cols="2">
-        <b-button variant="primary" class="px-4" type="submit">
-          {{ $t('login.submitLabel') }}
-        </b-button>
+        <b-button
+          variant="primary"
+          class="px-4"
+          data-cy="Login-btn"
+          type="submit"
+          >{{ $t('login.submitLabel') }}</b-button
+        >
       </b-col>
       <b-col cols="6" offset="4">
         <b-form-group
@@ -113,7 +121,8 @@ export default {
 };
 </script>
 
-<style scoped lang="sass">
-.alert
-  margin-top: 2em
+<style scoped lang="scss">
+.alert {
+  margin-top: 2em;
+}
 </style>

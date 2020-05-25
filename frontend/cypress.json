@@ -1,3 +1,14 @@
 {
-  "pluginsFile": "tests/e2e/plugins/index.js"
+  "baseUrl": "http://localhost:8080/",
+  "integrationFolder": "tests/cypress/integration/",
+  "videosFolder": "tests/cypress/videos/",
+  "fixturesFolder": "tests/cypress/fixtures/",
+  "screenshotsFolder": "tests/cypress/screenshots/",
+  "supportFile": "tests/cypress/support/index.js",
+  "pluginsFile": "tests/cypress/plugins/index.js",
+  "videoUploadOnPasses": false,
+  "env": {
+    "username": "admin",
+    "password": "admin"
+  }
 }
