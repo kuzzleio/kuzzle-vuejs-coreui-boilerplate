@@ -80,6 +80,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import Map from '@/components/Map';
 
 @Component
 export default class HelloWorld extends Vue {
