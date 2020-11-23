@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import LocaleChanger from '../components/LocaleChanger';
 import SideBar from '../components/SideBar';
 
@@ -42,6 +43,9 @@ export default {
   components: {
     LocaleChanger,
     SideBar
+  },
+  computed: {
+    ...mapGetters('auth', ['currentUsername'])
   },
   methods: {
     logout() {
