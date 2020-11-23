@@ -71,7 +71,7 @@ export const createRouter = (kuzzle: any, store: any) => {
         kuzzle.removeListener('reconnected', onceConnected);
 
         next();
-        return resolve();
+        return resolve(null);
       };
       if (!store.state.app.online) {
         kuzzle.addListener('connected', onceConnected);
