@@ -24,4 +24,4 @@ const defaultOptions = {
   }
 };
 
-Vue.use(VueIziToast, defaultOptions);
+Vue.use(VueIziToast as any, defaultOptions);
