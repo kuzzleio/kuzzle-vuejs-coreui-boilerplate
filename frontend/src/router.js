@@ -1,13 +1,10 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import { createWebHistory, createRouter } from 'vue-router';
 import Home from './views/Home';
 import Login from '@/views/Login';
 import DefaultContainer from '@/views/DefaultContainer';
 import PageNotFound from '@/views/404.vue';
 
-Vue.use(Router);
-
-export const createRouter = (kuzzle, store) => {
+export const createAppRouter = (kuzzle, store) => {
   const authenticationGuard = async (to, from, next) => {
     try {
       if (await store.dispatch('auth/CHECK_TOKEN', kuzzle)) {
@@ -16,37 +13,37 @@ export const createRouter = (kuzzle, store) => {
         next({ name: 'login', query: { to: to.name } });
       }
     } catch (error) {
-      console.error(error.message);
       next({ name: 'login', query: { to: to.name } });
     }
   };
 
-  const router = new Router({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [
-      {
-        path: '/login',
-        name: 'login',
-        component: Login
-      },
-      {
-        path: '/',
-        beforeEnter: authenticationGuard,
-        component: DefaultContainer,
-        children: [
-          {
-            path: '/',
-            name: 'home',
-            component: Home
-          }
-        ]
-      },
-      {
-        path: '*',
-        component: PageNotFound
-      }
-    ]
+  const routes = [
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/',
+      beforeEnter: authenticationGuard,
+      component: DefaultContainer,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: Home
+        }
+      ]
+    },
+    {
+      path: '*',
+      component: PageNotFound
+    }
+  ];
+
+  const router = createRouter({
+    history: createWebHistory(),
+    routes
   });
 
   router.beforeEach(async (to, from, next) => {

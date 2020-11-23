@@ -1,5 +1,4 @@
-import Vue from 'vue';
-import VueLogger from 'vuejs-logger';
+import VueLogger from 'vuejs3-logger';
 const isProduction = process.env.NODE_ENV === 'production';
 
 const options = {
@@ -12,4 +11,4 @@ const options = {
   showConsoleColors: true
 };
 
-Vue.use(VueLogger, options);
+export default { logger: VueLogger, options };
