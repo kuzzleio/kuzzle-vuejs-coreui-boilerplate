@@ -9,11 +9,13 @@ import VueKuzzle from 'vue-plugin-kuzzle';
 import config from './config.json';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
+import VueCompositionAPI from '@vue/composition-api';
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.use(VueKuzzle, config);
+Vue.use(VueCompositionAPI);
 
 const router = createRouter(Vue.prototype.$kuzzle, store);
 
