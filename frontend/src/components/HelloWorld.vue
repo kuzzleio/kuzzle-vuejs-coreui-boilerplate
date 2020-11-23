@@ -75,17 +75,24 @@
         >
       </li>
     </ul>
+    <Map />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import Map from '@/components/Map';
+import Map from '@/components/Map.vue';
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-}
+export default {
+  name: 'HelloWorld',
+  components: {
+    Map
+  },
+  props: {
+    msg: {
+      type: String
+    }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -103,5 +110,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.hello {
+  position: relative;
+  height: 100%;
 }
 </style>
