@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, onMounted } from '@vue/composition-api';
+import { ref } from '@vue/composition-api';
 import L from 'leaflet';
 import {
   LMap,
