@@ -5,6 +5,8 @@ import Login from '@/views/Login.vue';
 import DefaultContainer from '@/views/DefaultContainer.vue';
 import PageNotFound from '@/views/404.vue';
 
+import Map from '@/views/Map.vue';
+
 Vue.use(Router);
 
 export const createRouter = (kuzzle: any, store: any) => {
@@ -71,7 +73,7 @@ export const createRouter = (kuzzle: any, store: any) => {
         kuzzle.removeListener('reconnected', onceConnected);
 
         next();
-        return resolve();
+        return resolve(null);
       };
       if (!store.state.app.online) {
         kuzzle.addListener('connected', onceConnected);

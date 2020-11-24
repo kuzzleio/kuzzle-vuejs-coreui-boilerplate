@@ -75,18 +75,12 @@
         >
       </li>
     </ul>
-    <Map />
   </div>
 </template>
 
 <script lang="ts">
-import Map from '@/components/Map.vue';
-
 export default {
   name: 'HelloWorld',
-  components: {
-    Map
-  },
   props: {
     msg: {
       type: String
