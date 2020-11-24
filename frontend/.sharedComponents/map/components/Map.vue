@@ -42,9 +42,6 @@ export default {
 </script>
 
 <style lang="sass">
-@import "~leaflet.markercluster/dist/MarkerCluster.css";
-@import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
-
 .Map
   position: absolute
   width: 100%
