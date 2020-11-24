@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home';
-import Login from '@/views/Login';
-import DefaultContainer from '@/views/DefaultContainer';
+import Home from './views/Home.vue';
+import Login from '@/views/Login.vue';
+import DefaultContainer from '@/views/DefaultContainer.vue';
 import PageNotFound from '@/views/404.vue';
 
 Vue.use(Router);
 
-export const createRouter = (kuzzle, store) => {
-  const authenticationGuard = async (to, from, next) => {
+export const createRouter = (kuzzle: any, store: any) => {
+  const authenticationGuard = async (to: any, from: any, next: any) => {
     try {
       if (await store.dispatch('auth/CHECK_TOKEN', kuzzle)) {
         next();
@@ -71,7 +71,7 @@ export const createRouter = (kuzzle, store) => {
         kuzzle.removeListener('reconnected', onceConnected);
 
         next();
-        return resolve();
+        return resolve(null);
       };
       if (!store.state.app.online) {
         kuzzle.addListener('connected', onceConnected);

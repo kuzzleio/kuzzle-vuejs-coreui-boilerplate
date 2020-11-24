@@ -12,4 +12,4 @@ const options = {
   showConsoleColors: true
 };
 
-Vue.use(VueLogger, options);
+Vue.use(VueLogger as any, options);
