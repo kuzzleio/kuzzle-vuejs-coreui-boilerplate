@@ -27,3 +27,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+package-lock.json
+
+frontend/package-lock.json
+frontend/tests/cypress/screenshots
+frontend/tests/cypress/videos
