@@ -8,7 +8,7 @@ do
     sleep 5
 done
 
-node tests/app.ts &
+node tests/app.js &
 
 echo "[$(date)] - Starting Kuzzle..."
 while ! curl -f -s -o /dev/null http://localhost:7512
