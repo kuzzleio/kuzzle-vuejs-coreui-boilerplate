@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api';
 import L from 'leaflet';
 import {
   LMap,
@@ -32,9 +31,8 @@ export default {
   },
   setup() {
     return {
-      url: ref('https://{s}.tile.osm.org/{z}/{x}/{y}.png'),
-      attribution: ref(
-        '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
+      url: 'https://{s}.tile.osm.org/{z}/{x}/{y}.png',
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
       )
     };
   }

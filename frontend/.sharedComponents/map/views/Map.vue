@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
 import Map from '@/components/Map.vue';
@@ -36,7 +35,7 @@ export default {
     'v-marker-cluster': Vue2LeafletMarkerCluster
   },
   setup() {
-    const markers = ref([
+    const markers = [
       {
         id: 42,
         name: 'Test',
@@ -54,7 +53,7 @@ export default {
           interactive: true
         })
       }
-    ]);
+    ];
 
     return {
       markers
