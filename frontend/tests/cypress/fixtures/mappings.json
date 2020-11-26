@@ -1,0 +1,18 @@
+{
+  "cypress": {
+    "e2e": {
+      "dynamic": false,
+      "properties": {
+        "firstname": {
+          "type": "text"
+        },
+        "lastname": {
+          "type": "text"
+        },
+        "age": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
