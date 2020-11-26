@@ -5,7 +5,7 @@ import Login from '@/views/Login.vue';
 import DefaultContainer from '@/views/DefaultContainer.vue';
 import PageNotFound from '@/views/404.vue';
 
-import Map from '@/views/Map.vue';
+import Table from '@/views/Table.vue';
 
 Vue.use(Router);
 
