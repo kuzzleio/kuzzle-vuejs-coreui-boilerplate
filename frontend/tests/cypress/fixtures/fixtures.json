@@ -1,0 +1,26 @@
+{
+  "cypress": {
+    "e2e": [
+      {
+        "index": {
+          "_id": "01"
+        }
+      },
+      {
+        "firstname": "Agent",
+        "lastname": "Smith",
+        "age": 42
+      },
+      {
+        "index": {
+          "_id": "02"
+        }
+      },
+      {
+        "firstname": "Choosen",
+        "lastname": "One",
+        "age": 31
+      }
+    ]
+  }
+}
