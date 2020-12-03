@@ -53,7 +53,7 @@
           @row-selected="onRowSelected"
         >
           <template
-            v-for="slotName in Object.keys($scopedSlots)"
+            v-for="slotName of Object.keys($scopedSlots)"
             v-slot:[slotName]="slotScope"
           >
             <slot :name="slotName" v-bind="slotScope"></slot>
