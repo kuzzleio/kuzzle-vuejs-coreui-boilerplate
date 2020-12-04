@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { ref } from '@vue/composition-api';
 import { LPopup } from 'vue2-leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -27,10 +26,10 @@ export default {
   },
   setup() {
     return {
-      popupOptions: ref({
+      popupOptions: {
         maxWidth: 300,
         minWidth: 300
-      })
+      }
     };
   }
 };

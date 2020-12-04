@@ -34,7 +34,7 @@
     "vue-router": "^3.0.1",
     "vue2-leaflet": "^2.6.0",
     "vue2-leaflet-markercluster": "^3.1.0",
-    "vuejs-logger": "^1.5.4",
+    "vuejs-logger": "^1.5.5",
     "vuex": "^3.5.1"
   },
   "devDependencies": {

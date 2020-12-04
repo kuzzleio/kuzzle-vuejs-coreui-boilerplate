@@ -4,10 +4,12 @@
       "dynamic": false,
       "properties": {
         "firstname": {
-          "type": "text"
+          "type": "text",
+          "fielddata": true
         },
         "lastname": {
-          "type": "text"
+          "type": "text",
+          "fielddata": true
         },
         "age": {
           "type": "integer"
