@@ -69,7 +69,7 @@ export default {
       }
 
       ctx.root.$kuzzle.document
-        .search('tenant1', 'asset', query, {
+        .search('cypress', 'e2e', query, {
           from: (currentPage - 1) * perPage.value,
           size: perPage.value
         })
@@ -86,7 +86,7 @@ export default {
 
     let fields = ref([]);
     ctx.root.$kuzzle.collection
-      .getMapping('tenant1', 'asset', {
+      .getMapping('cypress', 'e2e', {
         includeKuzzleMeta: false
       })
       .then(res => {
