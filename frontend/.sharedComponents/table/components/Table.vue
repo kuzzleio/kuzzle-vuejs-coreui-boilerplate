@@ -74,7 +74,6 @@
 
 <script>
 import { ref, watch, reactive } from '@vue/composition-api';
-import { debounce } from 'debounce';
 
 export default {
   name: 'Table',

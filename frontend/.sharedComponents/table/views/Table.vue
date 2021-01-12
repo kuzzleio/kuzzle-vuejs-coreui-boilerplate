@@ -35,12 +35,15 @@
 import { ref, reactive, watch } from '@vue/composition-api';
 import Table from '@/components/Table.vue';
 
+import MappingFieldsService from '@/services/MappingFieldsService';
+
 export default {
   name: 'TableView',
   components: {
     Table
   },
   setup(props, ctx) {
+    const mappingFieldsService = new MappingFieldsService();
     const items = reactive([]);
     let totalRows = ref(0);
     let currentPage = 1;
@@ -66,7 +69,7 @@ export default {
       }
 
       ctx.root.$kuzzle.document
-        .search('cypress', 'e2e', query, {
+        .search('tenant1', 'asset', query, {
           from: (currentPage - 1) * perPage.value,
           size: perPage.value
         })
@@ -81,37 +84,21 @@ export default {
 
     fetchItems();
 
+    let fields = ref([]);
+    ctx.root.$kuzzle.collection
+      .getMapping('tenant1', 'asset', {
+        includeKuzzleMeta: false
+      })
+      .then(res => {
+        fields.value = mappingFieldsService.getFieldsForTable(res);
+      });
+
     return {
       items,
       currentPage,
       perPage,
       totalRows,
-      fields: [
-        {
-          key: 'firstname',
-          label: 'Firstname',
-          sortable: true
-        },
-        {
-          key: 'lastname',
-          label: 'Lastname',
-          sortable: true
-        },
-        {
-          key: 'fullName',
-          label: 'Full Name',
-          sortable: false
-        },
-        {
-          key: 'age',
-          label: 'Age',
-          sortable: true
-        },
-        {
-          key: 'actions',
-          label: 'Actions'
-        }
-      ],
+      fields: fields,
       removeRow: data => {
         console.log(data.item);
       },
