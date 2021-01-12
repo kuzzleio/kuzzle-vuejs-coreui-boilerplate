@@ -7,8 +7,7 @@ export default class MappingFieldsService {
     '.properties',
     'properties.',
     '.type',
-    '.fields',
-    'dynamic'
+    '.fields'
   ];
   private sortableFields = ['keyword', 'date', 'integer'];
 

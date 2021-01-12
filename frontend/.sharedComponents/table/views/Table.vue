@@ -98,7 +98,7 @@ export default {
       currentPage,
       perPage,
       totalRows,
-      fields: fields,
+      fields,
       removeRow: data => {
         console.log(data.item);
       },
