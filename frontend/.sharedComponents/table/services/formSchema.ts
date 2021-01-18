@@ -74,7 +74,6 @@ class FormSchemaService {
 
       if (this.isUnavailable(documentField, type)) {
         schema.unavailable.push(index);
-        return;
       }
 
       const typeCorrespondance = this.getTypeCorrespondance(type);
