@@ -44,25 +44,30 @@
         <b-button variant="info" @click="createRow">Add an item</b-button>
       </b-col>
     </b-row>
-
     <b-modal id="modal" :title="modalAction" @hide="modalHidden">
-      <b-row>
-        <b-col cols="6">
-          <vue-form-generator :schema="formSchema" :model="document.metadata">
-          </vue-form-generator>
-        </b-col>
-      </b-row>
+      <vue-form-generator :schema="formSchema" :model="document">
+      </vue-form-generator>
     </b-modal>
   </b-container>
 </template>
 
 <script>
+require('ace-builds');
+require('ace-builds/webpack-resolver');
+
 import { ref, reactive } from '@vue/composition-api';
 import VueFormGenerator from 'vue-form-generator';
 
-import Table from '@/components/Table.vue';
-import MappingFieldsService from '@/services/MappingFieldsService';
-import { formSchemaService } from '@/services/formSchema';
+import Table from '../components/Table.vue';
+
+import MappingFieldsService from '../services/MappingFieldsService';
+import { formSchemaService } from '../services/formSchema';
+
+import Vue from 'vue';
+import JsonFormInput from '../components/JsonFormInput.vue';
+import DateTimeFormInput from '../components/DateTimeFormInput.vue';
+Vue.component('field-jsonFormInput', JsonFormInput);
+Vue.component('field-dateTimeFormInput', DateTimeFormInput);
 
 export default {
   name: 'TableView',
@@ -127,10 +132,9 @@ export default {
                 label: 'Actions',
                 sortable: false
               });
-
               formSchema.value = formSchemaService.generate(
-                mapping.properties.metadata.properties,
-                document.value.metadata
+                mapping.properties,
+                document.value
               );
             });
         });
@@ -153,9 +157,7 @@ export default {
         ctx.root.$bvModal.show('modal');
       },
       createRow: data => {
-        document.value = {
-          metadata: {}
-        };
+        document.value = {};
         modalAction.value = 'Create';
         ctx.root.$bvModal.show('modal');
       },
