@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row class="mb-1">
-      <b-col cols="12">
+      <b-col cols="9">
         <b-form-input
           v-if="filterable"
           v-model="filter"
@@ -10,28 +10,15 @@
           @input="onFiltered"
         ></b-form-input>
       </b-col>
-    </b-row>
-
-    <b-row class="mb-1">
-      <b-col cols="12" align-self="end">
-        <b-form-group
-          label="Per page"
-          label-cols-sm="10"
-          label-cols-md="10"
-          label-cols-lg="10"
-          label-align-sm="right"
-          label-size="sm"
-          label-for="perPageSelect"
-          class="mb-0"
-        >
+      <b-col cols="3">
+        <b-input-group prepend="Per page">
           <b-form-select
             v-model="_perPage"
             id="perPageSelect"
-            size="sm"
             :options="pageOptions"
             @change="onPerPageChanged"
           ></b-form-select>
-        </b-form-group>
+        </b-input-group>
       </b-col>
     </b-row>
 
@@ -44,6 +31,7 @@
           bordered
           small
           no-sort-reset
+          show-empty
           responsive="sm"
           :selectable="selectable"
           :items="items"

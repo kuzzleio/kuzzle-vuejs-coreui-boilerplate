@@ -1,49 +1,56 @@
 <template>
-  <b-container class="mu-2">
-    <b-row>
-      <b-col cols="8">
-        <Table
-          :items="items"
-          :fields="fields"
-          :filterable="true"
-          :selectable="true"
-          :current-page="currentPage"
-          :per-page="perPage"
-          :total-rows="totalRows"
-          @sort-changed="onSortChanged"
-          @row-selected="handleEvent"
-          @filtered="onFilterChanged"
-          @page-changed="onPageChanged"
-          @per-page-changed="onPerPageChanged"
-        >
-          <template v-slot:cell(actions)="data">
-            <a
-              href="#"
-              @click.prevent="editRow(data)"
-              class="text-info"
-              v-b-tooltip.hover
-              title="Edit"
-            >
-              <i class="pointer fa fa-pen" /> </a
-            >&nbsp;
-            <a
-              href="#"
-              @click.prevent="removeRow(data)"
-              class="text-danger"
-              v-b-tooltip.hover
-              title="Delete"
-            >
-              <i class="pointer fa fa-trash" />
-            </a>
-          </template>
-        </Table>
+  <b-container class="mt-3">
+    <b-row class="mb-3">
+      <b-col class="text-left">
+        <h1>Table</h1>
+      </b-col>
+      <b-col cols="4" align-self="center" class="text-right">
+        <b-button variant="primary" @click="createRow">Add an item</b-button>
       </b-col>
     </b-row>
-    <b-row>
-      <b-col cols="2" align-self="start">
-        <b-button variant="info" @click="createRow">Add an item</b-button>
-      </b-col>
-    </b-row>
+    <Table
+      class="p-0 text-left"
+      :items="items"
+      :fields="fields"
+      :filterable="true"
+      :selectable="true"
+      :current-page="currentPage"
+      :per-page="perPage"
+      :total-rows="totalRows"
+      @sort-changed="onSortChanged"
+      @row-selected="handleEvent"
+      @filtered="onFilterChanged"
+      @page-changed="onPageChanged"
+      @per-page-changed="onPerPageChanged"
+    >
+      <template v-slot:cell(actions)="data">
+        <div class="text-center">
+          <a
+            href="#"
+            @click.prevent="editRow(data)"
+            class="text-primary"
+            v-b-tooltip.hover
+            title="Edit"
+          >
+            <i class="pointer fa fa-pen" /> </a
+          >&nbsp;
+          <a
+            href="#"
+            @click.prevent="removeRow(data)"
+            class="text-danger"
+            v-b-tooltip.hover
+            title="Delete"
+          >
+            <i class="pointer fa fa-trash" />
+          </a>
+        </div>
+      </template>
+      <template #empty>
+        <h4 class="text-secondary text-center mt-1">
+          There is currently no result.
+        </h4>
+      </template>
+    </Table>
 
     <b-modal :id="uid" :title="modalAction" @hide="modalHidden">
       <vue-form-generator :schema="formSchema" :model="document">
@@ -121,7 +128,10 @@ export default {
             });
           }
           totalRows.value = res.total;
-          document.value = JSON.parse(JSON.stringify(items[0]));
+
+          if (res.total) {
+            document.value = JSON.parse(JSON.stringify(items[0]));
+          }
 
           ctx.root.$kuzzle.collection
             .getMapping('tenant1', 'asset', {
