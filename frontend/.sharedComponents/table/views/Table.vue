@@ -44,7 +44,8 @@
         <b-button variant="info" @click="createRow">Add an item</b-button>
       </b-col>
     </b-row>
-    <b-modal id="modal" :title="modalAction" @hide="modalHidden">
+
+    <b-modal :id="uid" :title="modalAction" @hide="modalHidden">
       <vue-form-generator :schema="formSchema" :model="document">
       </vue-form-generator>
     </b-modal>
@@ -76,6 +77,7 @@ export default {
     VueFormGenerator: VueFormGenerator.component
   },
   setup(props, ctx) {
+    const uid = Math.random().toString();
     const mappingFieldsService = new MappingFieldsService();
     const items = reactive([]);
     let totalRows = ref(0);
@@ -143,6 +145,7 @@ export default {
     fetchItems();
 
     return {
+      uid,
       items,
       currentPage,
       perPage,
@@ -154,12 +157,12 @@ export default {
       editRow: data => {
         document.value = JSON.parse(JSON.stringify(data.item));
         modalAction.value = 'Edit';
-        ctx.root.$bvModal.show('modal');
+        ctx.root.$bvModal.show(uid);
       },
       createRow: data => {
         document.value = {};
         modalAction.value = 'Create';
-        ctx.root.$bvModal.show('modal');
+        ctx.root.$bvModal.show(uid);
       },
       modalHidden: async event => {
         if (event.trigger === 'ok') {
