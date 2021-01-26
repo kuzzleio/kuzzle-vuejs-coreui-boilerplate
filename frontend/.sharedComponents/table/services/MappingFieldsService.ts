@@ -1,5 +1,4 @@
 import flatten from 'flat';
-import _ from 'lodash';
 
 export default class MappingFieldsService {
   private unwantedPathKeys = [
