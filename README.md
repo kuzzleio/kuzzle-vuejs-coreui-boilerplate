@@ -1,69 +1,112 @@
-# Kuzzle, VueJS and Bootstrap boilerplate
+# The Frontend App
 
-A pretty fat boilerplate to start-off webapp projects based on Kuzzle and VueJS.
-This boilerplate is composed of a **backend**, located in `./backend` and a **frontend**, located in `./frontend`.
+This is where your frontend application lives. You can perform the following actions:
 
-Each layer of the stack contains its corresponding `README.md` file. Please refer to it.
+- Project setup
 
-## Overview
-
-This boilerplate provides you with
-
-- A dockerized instance of Kuzzle, ready to be extended with a...
-  - ...plugin boilerplate mounted as a volume in the Kuzzle Docker container.
-- A VueJS web application based on the Kuzzle SDK v7-beta, including:
-  - an implementation of the authentication method integrated with Vuex,
-  - an implementation of the "Offline mode", also integrated with Vuex,
-  - a complete i18n setup based on vue-i18n,
-  - a complete Bootstrap-Vue installation (with fortawesome 5),
-  - an instance of the vue-izitoast plugin
-  - a ready-to-go Cypress.io installation for e2e testing
-  
-## Get trained by the creators of Kuzzle :zap:
-
-Train yourself and your teams to use Kuzzle to maximize its potential and accelerate the development of your projects.  
-Our teams will be able to meet your needs in terms of expertise and multi-technology support for IoT, mobile/web, backend/frontend, devops.  
-:point_right: [Get a quote](https://hubs.ly/H0jkfJ_0)
-
-## Install
-
-Clone this repository using the following command
-
-```bash
-git clone --recurse-submodules https://github.com/kuzzleio/kuzzle-vuejs-coreui-boilerplate.git
+```
+npm install
 ```
 
-> Note that the `--recurse-submodules` is important since the `backend` folder is a submodule pointing to the [Kuzzle Plugin
-> Advanced Boilerplate](ttps://github.com/kuzzleio/kuzzle-plugin-advanced-boilerplate).
+- Compiles and hot-reloads for development
 
-Then, delete the Git tree and reinitialize the repo from scratch
-
-```bash
-cd kuzzle-vuejs-coreui-boilerplate
-rm -rf .git
+```
+npm run serve
 ```
 
-At this point you may rename the folder of your project to a meaningful name.
-Then, you can set remote(s) the usual way
+- Compiles and minifies for production
 
-```bash
-git init
-git remote add origin <another-git-server-URL-here>
+```
+npm run build
 ```
 
-## And then what?
+- Run your tests
 
-Start your local Kuzzle instance by typing
-
-```bash
-docker-compose -f backend/docker/docker-compose.yml up -d
+```
+npm run test
 ```
 
-Serve your web app locally by typing
+- Lints and fixes files
 
-```bash
-cd frontend
-npm install && npm run serve
+```
+npm run lint
 ```
 
-Take a look at the `README.md` files in the `backend` and `frontend` directories to do the next steps.
+- Run your end-to-end tests
+
+```
+npm run test:e2e
+```
+
+- Customize configuration
+  See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Kuzzle SDK
+
+The boilerplate use `vue-kuzzle` plugin to encapsulate the kuzzle SDK in the app.
+more infos here : [vue-kuzzle](https://www.npmjs.com/package/vue-kuzzle).
+
+### Connecting to the Backend
+
+You can store your backend connection parameters in the `@/config.json` file, in the `backends` field. There should be
+at least a `local` backend in this object. You can switch the environment, either by hardcoding it in the `kuzzle` service
+or by setting the `VUE_APP_BACKEND` variable to the name of the desired backend.
+
+The provided implementation of the `kuzzle` service connects to the backend via the `Websocket` protocol. Change the call
+to the constructor to the desired protocol if needed (learn more at https://docs-v2.kuzzle.io/sdk-reference/js/6/kuzzle/introduction/).
+
+### Authenticate to Kuzzle
+
+This boilerplate provides a standard implementation of the authentication using the `local` strategy. It consists of the
+following items:
+
+- the `@/vuex/auth.js` module,
+- the `authenticationGuard` function declared in the router,
+- the `@/views/Login.vue` component,
+- the `logout` method in the `@/App.vue` component,
+- the listeners declared in the `mounted` hook of the `@/App.vue` component.
+
+After a successful login, the JSON Web Token (JWT) provided by the backend is automatically stored in the Local Storage
+in the `user-token` key. This allows to keep the authenticated session live across page refreshes.
+
+Apply the `authenticationGuard` the routes that you want to protect with authentication: this will allow the route to
+be resolved only if a valid JWT is locally stored on the client.
+
+### Resiliency to connection loss
+
+The Kuzzle SDK provides the ability to implement a behavior for your app while the connection to the backend is not available
+(learn more at https://docs-v2.kuzzle.io/sdk-reference/js/6/offline-tools/). This boilerplate provides a standard implementation
+of this behavior (which may not fully fit all use-cases):
+
+- whenever the connection is lost (Kuzzle SDK triggers the `disconnected` event), a toast is displayed to inform the user;
+- if the user navigates to a new route while offline, the app displays a "Houston, we have a problem" page;
+- whenever the connection is recovered, the toast is discarded and, if the offline-page was displayed, the app navigates
+  to the required route.
+
+The offline-page may seem quite overkill: after all, why not simply navigate to the required route and not display any
+data coming from the backend? This may be preferrable to some use-cases but, in our current implementation of the authentication
+system, we need to check the user's authentication token before navigating to a page. This operation requires sending a
+request to the backend, which is not possible while offline. Plus, the `checkToken` action is non-queueable in the Kuzzle SDK.
+
+The main implementation items are
+
+- the `@/vuex/app.js` module,
+- the `beforeEach` guard in the `@/router.js` module,
+- the listeners declared in the `mounted` hook of the `@/App.vue` component.
+
+## The internationalization
+
+The app is fully i18n thanks to the [Vue-i18n](https://kazupon.github.io/vue-i18n/) plugin.
+Locale messages are stored in the `@/locales` directory and this boilerplate only provides English to start.
+
+You can use the `@/components/LocaleChanger.vue` component to live-change the locale in the app. This component reads
+its available options in the `locales` field of the `@/config.json` file.
+
+## Boostrap
+
+The boilerplate ships with [Bootstrap-Vue](https://bootstrap-vue.js.org/) installed in your frontend. You can add variables to the `_variables.scss` file and add any customizations and hacks in `_custom.scss` (both in the `@/assets` directory). You can also drop IE-specific hacks in the `_ie-fix.scss` file.
+
+## Toast notifications to the user
+
+This boilerplates ships with [Vue-izitoast](https://github.com/arthurvasconcelos/vue-izitoast), that exposes the `$toast` element in the Vue components.
+You can find an example of its usage in the `checkConnection` method of the `@/App.vue` component.
