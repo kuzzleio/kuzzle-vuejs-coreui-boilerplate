@@ -17,6 +17,7 @@
       :current-page="currentPage"
       :per-page="perPage"
       :total-rows="totalRows"
+      :tableOptions="tableOptions"
       @sort-changed="onSortChanged"
       @row-selected="handleEvent"
       @filtered="onFilterChanged"
@@ -96,6 +97,9 @@ export default {
     let fields = ref([]);
     let document = ref({});
     let modalAction = ref('');
+    let tableOptions = ref({
+      // set here all bootstrap table supported props
+    });
 
     const fetchItems = () => {
       let query = {};
