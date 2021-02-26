@@ -70,7 +70,9 @@ class FormSchemaService {
 
     for (const [index, value] of Object.entries(cleanedMapping)) {
       const documentField: object = (document as JSONObject)[index];
-      const type: string = value['properties'] ? 'object' : value['type'];
+      const type: string = (value as any)['properties']
+        ? 'object'
+        : (value as any)['type'];
 
       if (this.isUnavailable(documentField, type)) {
         schema.unavailable.push(index);
@@ -102,10 +104,6 @@ class FormSchemaService {
       return true;
     }
 
-    if (Array.isArray(documentField)) {
-      return true;
-    }
-
     return false;
   }
 
@@ -123,7 +121,7 @@ interface FormField {
   inputType: string;
   label: string;
   model: string;
-  mapping: object;
+  mapping: any;
 }
 
 interface Schema {

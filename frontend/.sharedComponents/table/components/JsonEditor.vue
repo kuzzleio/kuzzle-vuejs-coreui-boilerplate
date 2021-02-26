@@ -33,10 +33,6 @@ export default {
   name: 'JsonEditor',
   props: {
     content: String,
-    id: {
-      type: String,
-      default: Date.now().toString() + Math.random().toString()
-    },
     myclass: {
       type: String,
       default: ''
@@ -46,6 +42,7 @@ export default {
   },
   data() {
     return {
+      id: Date.now().toString() + Math.random().toString(),
       editor: null
     };
   },
